@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mentorshipRoutes from './routes/mentorshipRoutes.js';
+import aiWalletRoutes from './routes/aiWalletRoutes.js';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
 });
 
 app.use('/api', mentorshipRoutes);
+app.use('/api', aiWalletRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

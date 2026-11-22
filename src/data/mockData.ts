@@ -90,3 +90,114 @@ export const sessions: Session[] = [
     discountApplied: 375,
   },
 ];
+
+export type CoinPackage = {
+  id: string;
+  coins: number;
+  price: number;
+  note?: string;
+};
+
+export type ActivityType = 'allocation' | 'ai' | 'purchase';
+
+export type CoinActivity = {
+  id: string;
+  date: string;
+  type: ActivityType;
+  label: string;
+  coins: number;
+  description: string;
+};
+
+export type Reward = {
+  id: string;
+  title: string;
+  meta: string[];
+  description: string;
+  originalPrice: number;
+  discountPct: number;
+};
+
+export type UsedReward = {
+  id: string;
+  title: string;
+  usedOn: string;
+  mentor: string;
+  topic: string;
+  saved: number;
+};
+
+export const walletSummary = {
+  available: 65,
+  dailyFree: 15,
+  purchased: 50,
+  usedToday: 5,
+  usedThisWeek: 20,
+};
+
+export const coinPackages: CoinPackage[] = [
+  { id: 'pack-1', coins: 25, price: 500, note: 'Starter pack' },
+  { id: 'pack-2', coins: 60, price: 1000, note: 'Most popular' },
+  { id: 'pack-3', coins: 150, price: 2200, note: 'Best value' },
+];
+
+export const coinActivity: CoinActivity[] = [
+  {
+    id: 'act-1',
+    date: '2026-11-18',
+    type: 'allocation',
+    label: 'Daily free coins',
+    coins: 15,
+    description: 'Automatic daily coin allocation',
+  },
+  {
+    id: 'act-2',
+    date: '2026-11-18',
+    type: 'ai',
+    label: 'AI Mentor query',
+    coins: -5,
+    description: 'Debugging React useEffect dependency loop',
+  },
+  {
+    id: 'act-3',
+    date: '2026-11-16',
+    type: 'purchase',
+    label: 'Coin package top-up',
+    coins: 60,
+    description: 'Purchased 60 coins via PayHere',
+  },
+  {
+    id: 'act-4',
+    date: '2026-11-15',
+    type: 'ai',
+    label: 'AI Mentor query',
+    coins: -5,
+    description: 'Explaining Express middleware error handling',
+  },
+];
+
+export const rewardSummary = {
+  xp: 2450,
+  rank: 12,
+  availableRewards: [
+    {
+      id: 'rew-1',
+      title: '20% Off 1:1 Mentor Session',
+      meta: ['Top 15 Leaderboard Tier', 'Valid for 30-min or 60-min sessions'],
+      description:
+        'Earned by maintaining a Top 15 position on the global DevCraft XP leaderboard.',
+      originalPrice: 2500,
+      discountPct: 20,
+    },
+  ] as Reward[],
+  usedRewards: [
+    {
+      id: 'used-1',
+      title: '15% Off 1:1 Mentor Session',
+      usedOn: '2026-11-10',
+      mentor: 'Amaya',
+      topic: 'Connecting frontend and backend',
+      saved: 375,
+    },
+  ] as UsedReward[],
+};
