@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mentorshipRoutes from './routes/mentorshipRoutes.js';
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ app.get('/api/health', (_req: Request, res: Response) => {
     service: 'devcraft-mentorship-backend',
   });
 });
+
+app.use('/api', mentorshipRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
