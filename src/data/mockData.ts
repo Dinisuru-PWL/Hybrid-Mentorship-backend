@@ -22,6 +22,42 @@ export type Session = {
   discountApplied: number;
 };
 
+export type CoinPackage = {
+  id: string;
+  coins: number;
+  price: number;
+  note?: string;
+};
+
+export type ActivityType = 'allocation' | 'ai' | 'purchase';
+
+export type CoinActivity = {
+  id: string;
+  date: string;
+  type: ActivityType;
+  label: string;
+  coins: number;
+  description: string;
+};
+
+export type Reward = {
+  id: string;
+  title: string;
+  meta: string[];
+  description: string;
+  originalPrice: number;
+  discountPct: number;
+};
+
+export type UsedReward = {
+  id: string;
+  title: string;
+  usedOn: string;
+  mentor: string;
+  topic: string;
+  saved: number;
+};
+
 export const mentors: Mentor[] = [
   {
     id: 'mentor-1',
@@ -90,42 +126,6 @@ export const sessions: Session[] = [
     discountApplied: 375,
   },
 ];
-
-export type CoinPackage = {
-  id: string;
-  coins: number;
-  price: number;
-  note?: string;
-};
-
-export type ActivityType = 'allocation' | 'ai' | 'purchase';
-
-export type CoinActivity = {
-  id: string;
-  date: string;
-  type: ActivityType;
-  label: string;
-  coins: number;
-  description: string;
-};
-
-export type Reward = {
-  id: string;
-  title: string;
-  meta: string[];
-  description: string;
-  originalPrice: number;
-  discountPct: number;
-};
-
-export type UsedReward = {
-  id: string;
-  title: string;
-  usedOn: string;
-  mentor: string;
-  topic: string;
-  saved: number;
-};
 
 export const walletSummary = {
   available: 65,
